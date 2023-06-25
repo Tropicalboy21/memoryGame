@@ -1,0 +1,23 @@
+:root {
+    --nav_container-height: 92px;
+}
+
+.main_container {
+    display: flex;
+    flex-direction: column;
+    background-color: #088395;
+    width: 100vw;
+    height: 100vh;
+}
+
+.nav_container {
+    background-color: #088395;
+    width: 100%;
+    height: var(--nav_container-height);
+}
+
+.content_container {
+    background-color: #088395;
+    width: 100%;
+    height: calc(100% - var(--nav_container-height));
+}
