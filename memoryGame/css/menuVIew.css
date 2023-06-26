@@ -1,0 +1,15 @@
+.menuView-btn {
+    width: 145px;
+    height: 204px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.menuView .icon {
+    height: 139px;
+    width: 117px;
+    background-image: url(../imgs/login-icon.png);
+}

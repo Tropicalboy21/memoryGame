@@ -1,23 +1,39 @@
-:root {
-    --nav_container-height: 92px;
+* {
+    font-family: 'Luckiest Guy', cursive !important;
 }
 
-.main_container {
+
+:root {
+    --background-color-navy: #0A4D68;
+    --background-color-teal: #088395;
+    --background-color-blue: #05BFDB;
+    --background-color-mint: #00FFCA;
+    --nav-container-height: 92px;
+}
+
+.main-container {
     display: flex;
     flex-direction: column;
-    background-color: #088395;
+    background-color: var(--background-color-navy);
     width: 100vw;
     height: 100vh;
 }
 
-.nav_container {
-    background-color: #3da4b4;
+.nav-container {
+    background-color: var(--background-color-teal);
     width: 100%;
-    height: var(--nav_container-height);
+    height: var(--nav-container-height);
 }
 
-.content_container {
-    background-color: #088395;
+.content-container {
+    background-color: var(--background-color-teal);
     width: 100%;
-    height: calc(100% - var(--nav_container-height));
+    height: calc(100% - var(--nav-container-height));
+}
+
+.true {
+    text-align: center;
+    font-size: 35px;
+    color: var(--background-color-teal);
+    text-shadow: 0px 1px 2px 0px rgba(0, 255, 255, 0.7);
 }
