@@ -29,6 +29,9 @@
     background-color: var(--background-color-teal);
     width: 100%;
     height: calc(100% - var(--nav-container-height));
+    flex-direction: column;
+    display: flex;
+    align-items: center;
 }
 
 .true {

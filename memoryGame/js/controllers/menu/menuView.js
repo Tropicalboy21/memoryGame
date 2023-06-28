@@ -12,7 +12,5 @@ export class MenuView extends View {
         var img = document.createElement('div');
         img.className = 'icon';
         loginBtn.appendChild(img);
-
-
     }
 }

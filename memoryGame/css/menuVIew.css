@@ -12,4 +12,9 @@
     height: 139px;
     width: 117px;
     background-image: url(../imgs/login-icon.png);
+    transition: all .2s ease-in-out;
+}
+
+.menuView .icon:hover {
+    transform: scale(1.1);
 }
