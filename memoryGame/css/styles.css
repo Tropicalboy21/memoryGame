@@ -52,6 +52,10 @@
     font-weight: bold;
     color: var(--background-color-mint);
     margin-left: 20px;
+    background-image: url(../imgs/back-icon.png);
+    background-size: contain;
+    width: 36.71px;
+    height: 30px;
 }
 
 .navigationContainer-title {
