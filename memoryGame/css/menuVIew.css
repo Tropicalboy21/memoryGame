@@ -1,20 +1,133 @@
-.menuView-btn {
+.menuView {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+
+.login-btn {
     width: 145px;
     height: 204px;
     border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-
-.menuView .icon {
-    height: 139px;
-    width: 117px;
     background-image: url(../imgs/login-icon.png);
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
     transition: all .2s ease-in-out;
 }
 
-.menuView .icon:hover {
+
+.login-btn:hover {
+    transition: all .2s ease-in-out;
+    transform: scale(1.1);
+}
+
+.play-btn {
+    width: 145px;
+    height: 204px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../imgs/play-icon.png);
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all .2s ease-in-out;
+}
+
+
+.play-btn:hover {
+    transition: all .2s ease-in-out;
+    transform: scale(1.1);
+}
+
+.scores-btn {
+    width: 145px;
+    height: 204px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../imgs/scores-icon.png);
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all .2s ease-in-out;
+}
+
+
+.scores-btn:hover {
+    transition: all .2s ease-in-out;
+    transform: scale(1.1);
+}
+
+
+.level-btn {
+    width: 145px;
+    height: 204px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../imgs/level-icon.png);
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all .2s ease-in-out;
+}
+
+
+.level-btn:hover {
+    transition: all .2s ease-in-out;
+    transform: scale(1.1);
+}
+
+
+.themes-btn {
+    width: 145px;
+    height: 204px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../imgs/themes-icon.png);
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all .2s ease-in-out;
+}
+
+
+.themes-btn:hover {
+    transition: all .2s ease-in-out;
+    transform: scale(1.1);
+}
+
+.credits-btn {
+    width: 145px;
+    height: 204px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../imgs/credits-icon.png);
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all .2s ease-in-out;
+}
+
+
+.credits-btn:hover {
+    transition: all .2s ease-in-out;
     transform: scale(1.1);
 }
