@@ -8,3 +8,34 @@
     flex-direction: column;
     background-color: var(--background-color-teal);
 }
+
+.welcome-text {
+    width: 258px;
+    height: 59px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../imgs/welcome-text.png);
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.login-caption {
+    color: var(--background-color-mint);
+    font-size: 20px;
+}
+
+.input-login {
+    width: 258px;
+    height: 52px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.24);
+    margin-bottom: 18px;
+}
+
+.input-login::placeholder {
+    color: #FFFFFF;
+}
