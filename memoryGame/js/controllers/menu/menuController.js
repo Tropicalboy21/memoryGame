@@ -6,4 +6,8 @@ export class MenuController extends Controller {
         super(gameManager);
         this.view = new MenuView(this, parent);
     }
+
+    goto(state) {
+        this.gameManager.goto(state);
+    }
 }

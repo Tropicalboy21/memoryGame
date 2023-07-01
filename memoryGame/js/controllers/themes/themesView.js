@@ -8,16 +8,16 @@ export class ThemesView extends View {
         var foodBtn = document.createElement('div');
         this.container.appendChild(foodBtn);
         foodBtn.innerHTML = 'Food';
-        foodBtn.className = 'game-button';
+        foodBtn.className = 'btn';
 
         var facesBtn = document.createElement('div');
         this.container.appendChild(facesBtn);
         facesBtn.innerHTML = 'Faces';
-        facesBtn.className = 'game-button';
+        facesBtn.className = 'btn';
 
         var flagsBtn = document.createElement('div');
         this.container.appendChild(flagsBtn);
         flagsBtn.innerHTML = 'Flags';
-        flagsBtn.className = 'game-button';
+        flagsBtn.className = 'btn';
     }
 }

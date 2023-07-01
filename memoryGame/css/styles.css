@@ -27,35 +27,33 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
+    z-index: 1;
 }
 
 .content-container {
     background-color: var(--background-color-teal);
     width: 100%;
-    height: calc(100% - var(--nav-container-height));
+    height: calc(900px - var(--nav-container-height));
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.true {
-    text-align: center;
-    font-size: 35px;
-    color: var(--background-color-teal);
-    text-shadow: 0px 1px 2px 0px rgba(0, 255, 255, 0.7);
-}
-
 /* Navigation Container CSS */
 .navigationContainer-back-button {
-    position: fixed;
-    font-size: 20px;
-    font-weight: bold;
-    color: var(--background-color-mint);
-    margin-left: 20px;
     background-image: url(../imgs/back-icon.png);
     background-size: contain;
+    background-position: center;
     width: 36.71px;
     height: 30px;
+    margin-left: 20px;
+    transition: all .2s ease-in-out;
+}
+
+
+.navigationContainer-back-button:hover {
+    transition: all .2s ease-in-out;
+    transform: scale(1.2);
 }
 
 .navigationContainer-title {
@@ -68,4 +66,105 @@
     height: auto;
     text-align: center;
     color: var(--background-color-mint);
+}
+
+.title-menu {
+    background-image: url(../imgs/menu-title.png);
+    background-size: contain;
+    width: 132px;
+    height: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.title-login {
+    background-image: url(../imgs/login-title.png);
+    background-size: contain;
+    width: 134px;
+    height: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+.title-play {
+    background-image: url(../imgs/play-title.png);
+    background-size: contain;
+    width: 111px;
+    height: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.title-scores {
+    background-image: url(../imgs/scores-title.png);
+    background-size: contain;
+    width: 170px;
+    height: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.title-level {
+    background-image: url(../imgs/level-title.png);
+    background-size: contain;
+    width: 132px;
+    height: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.title-themes {
+    background-image: url(../imgs/themes-title.png);
+    background-size: contain;
+    width: 188px;
+    height: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+.title-credits {
+    background-image: url(../imgs/credits-title.png);
+    background-size: contain;
+    width: 180px;
+    height: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+
+.none {
+    width: 36.71px;
+    height: 30px;
+    margin-right: 20px;
+
+}
+
+
+.hidden {
+    background-image: none;
+    width: 36.71px;
+    height: 30px;
+}
+
+.btn {
+    width: 258px;
+    height: 52px;
+    border-radius: 15px;
+    background-color: var(--background-color-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    font-size: 22px;
+    background: #05BFDB;
+    box-shadow: -4px 0px 6px 0px rgba(0, 0, 0, 0.25) inset, 4px 0px 6px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-bottom: 20px;
+}
+
+.btn:hover {
+    background-color: var(--background-color-mint);
+    color: #000;
 }

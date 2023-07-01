@@ -6,6 +6,8 @@
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
+    position: fixed;
+    overflow-y: auto;
 }
 
 
@@ -22,6 +24,7 @@
     background-position: center;
     background-repeat: no-repeat;
     transition: all .2s ease-in-out;
+    margin: 20px;
 }
 
 
@@ -42,6 +45,7 @@
     background-position: center;
     background-repeat: no-repeat;
     transition: all .2s ease-in-out;
+    margin: 10px;
 }
 
 
@@ -62,6 +66,7 @@
     background-position: center;
     background-repeat: no-repeat;
     transition: all .2s ease-in-out;
+    margin: 10px;
 }
 
 
@@ -83,6 +88,7 @@
     background-position: center;
     background-repeat: no-repeat;
     transition: all .2s ease-in-out;
+    margin: 10px;
 }
 
 
@@ -104,6 +110,7 @@
     background-position: center;
     background-repeat: no-repeat;
     transition: all .2s ease-in-out;
+    margin: 10px;
 }
 
 
@@ -124,6 +131,7 @@
     background-position: center;
     background-repeat: no-repeat;
     transition: all .2s ease-in-out;
+    margin: 10px;
 }
 
 
