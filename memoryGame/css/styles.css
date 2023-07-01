@@ -8,7 +8,7 @@
     --background-color-teal: #088395;
     --background-color-blue: #05BFDB;
     --background-color-mint: #00FFCA;
-    --nav-container-height: 92px;
+    --nav-container-height: 78px;
 }
 
 .main-container {
@@ -33,7 +33,7 @@
 .content-container {
     background-color: var(--background-color-teal);
     width: 100%;
-    height: calc(900px - var(--nav-container-height));
+    height: calc(100% - var(--nav-container-height));
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,7 +71,7 @@
 .title-menu {
     background-image: url(../imgs/menu-title.png);
     background-size: contain;
-    width: 132px;
+    width: 370px;
     height: 50px;
     background-position: center;
     background-repeat: no-repeat;

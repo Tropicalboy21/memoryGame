@@ -4,7 +4,44 @@
 
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-direction: column;
     background-color: var(--background-color-teal);
+}
+
+.game-name {
+    width: 222px;
+    height: 78px;
+    background-image: url("../imgs/game-name.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.credits-text {
+    text-align: center;
+    width: 254px;
+    color: #FFFFFF;
+    font-size: 20px;
+}
+
+.link {
+    color: #00FFCA;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: var(--background-color-blue);
+}
+
+.date {
+    width: auto;
+}
+
+.footer {
+    text-align: center;
+    height: 65px;
+    width: 172px;
+    color: #FFFFFF;
+    font-size: 20px;
 }

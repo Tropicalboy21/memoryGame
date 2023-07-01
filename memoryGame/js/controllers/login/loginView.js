@@ -12,7 +12,7 @@ export class LoginView extends View {
         this.container.appendChild(inputLogin);
         inputLogin.className = 'input-login';
         inputLogin.setAttribute('id', 'inputLogin');
-        document.getElementById('inputLogin').placeHolder = 'username';
+        document.getElementById('inputLogin').placeholder = 'username';
         var loginBtn = div({ innerHTML: 'play', className: 'btn' }, this.container);
     }
 
