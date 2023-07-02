@@ -2,7 +2,6 @@
     font-family: 'Luckiest Guy', cursive !important;
 }
 
-
 :root {
     --background-color-navy: #0A4D68;
     --background-color-teal: #088395;
@@ -11,12 +10,17 @@
     --nav-container-height: 78px;
 }
 
+.body {
+    background-color: var(--background-color-teal);
+}
+
 .main-container {
     display: flex;
     flex-direction: column;
     background-color: var(--background-color-navy);
     width: 100vw;
     height: 100vh;
+    position: fixed;
 }
 
 .nav-container {
@@ -37,6 +41,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-y: auto;
 }
 
 /* Navigation Container CSS */
