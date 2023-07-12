@@ -1,0 +1,19 @@
+{
+  "name": "game",
+  "version": "1.0.0",
+  "description": "University Project",
+  "main": "index.js",
+  "scripts": {
+    "play": "gulp play",
+    "clean": "gulp clean",
+    "bundle": "gulp bundle"
+  },
+  "author": "Lenin Ugalde",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.29.3",
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "rollup": "^3.26.2"
+  }
+}

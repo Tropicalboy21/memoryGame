@@ -5,11 +5,14 @@ import { CreditsController } from "./controllers/credits/creditsController.js";
 import { PlayController } from "./controllers/play/playController.js";
 import { LevelController } from "./controllers/level/levelController.js";
 import { ScoresController } from "./controllers/scores/scoresController.js"
-import { MENU_STATE, LOGIN_STATE, PLAY_STATE, SCORES_STATE, LEVEL_STATE, THEMES_STATE, CREDITS_STATE, } from "./libs/constants.js";
+import { MENU_STATE, LOGIN_STATE, PLAY_STATE, SCORES_STATE, LEVEL_STATE, THEMES_STATE, CREDITS_STATE, DIFFICULTY_LOW, DIFFICULTY_MEDIUM, DIFFICULTY_HIGH, THEME_FACES, THEME_FOOD, THEME_FLAGS } from "./libs/constants.js";
 
 
 export class GameManager {
     constructor() {
+        this.difficulty = DIFFICULTY_MEDIUM;
+        this.theme = THEME_FOOD;
+
         this.controller = null;
         this.navigationContainer = document.getElementById('navigationContainer');
         this.contentContainer = document.getElementById('contentContainer');
