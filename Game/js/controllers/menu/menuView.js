@@ -18,7 +18,15 @@ export class MenuView extends View {
 
     }
 
-    onButtonClick(state, event) {
-        this.controller.goto(state);
+    onButtonClick(state) {
+        var event = new CustomEvent('home-button-click', {
+            detail: {
+                state: state,
+            },
+            bubbles: true,
+            cancelable: true,
+            composed: false,
+        });
+        this.container.dispatchEvent(event);
     }
 }

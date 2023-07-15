@@ -22,6 +22,22 @@ export class GameManager {
 
         this.menuController = new MenuController(this, this.contentContainer);
         this.presenting(MENU_STATE);
+
+        this.contentContainer.addEventListener('home-button-click', (event) => {
+            this.presenting(event.detail.state);
+        })
+
+        this.contentContainer.addEventListener('hide-complete', (event) => {
+            this.presenting(event.detail.state);
+        });
+
+        this.contentContainer.addEventListener('save-difficulty', (event) => {
+            this.difficulty = event.detail.difficulty;
+            this.saveDifficulty()
+        });
+
+        this.loadDifficulty();
+
     }
 
     presenting(state) {
@@ -72,5 +88,15 @@ export class GameManager {
         } else {
             this.presenting(state);
         }
+    }
+
+    loadDifficulty() {
+        if (localStorage.getItem('difficulty')) {
+            this.difficulty = localStorage.getItem('difficulty');
+        }
+    }
+
+    saveDifficulty() {
+        localStorage.setItem('difficulty', this.difficulty);
     }
 }

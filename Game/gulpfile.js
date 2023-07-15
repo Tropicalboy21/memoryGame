@@ -1,5 +1,6 @@
 const gulp = require('gulp');
 const browserSync = require("browser-sync");
+const clean = require('gulp-clean');
 const server = browserSync.create();
 
 gulp.task('clean', () => {

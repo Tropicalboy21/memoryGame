@@ -10,8 +10,6 @@
     overflow-y: auto;
 }
 
-
-
 .login-btn {
     width: 145px;
     height: 204px;
@@ -26,7 +24,6 @@
     transition: all .2s ease-in-out;
     margin: 10px;
 }
-
 
 .login-btn:hover {
     transition: all .2s ease-in-out;

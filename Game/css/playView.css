@@ -8,3 +8,10 @@
     flex-direction: column;
     background-color: var(--background-color-teal);
 }
+
+.playView-cardsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
