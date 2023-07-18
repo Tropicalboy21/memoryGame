@@ -8,11 +8,12 @@
     flex-wrap: wrap;
     position: fixed;
     overflow-y: auto;
+    align-content: center;
 }
 
 .login-btn {
     width: 145px;
-    height: 204px;
+    height: 190px;
     border-radius: 15px;
     display: flex;
     align-items: center;
@@ -22,7 +23,7 @@
     background-position: center;
     background-repeat: no-repeat;
     transition: all .2s ease-in-out;
-    margin: 10px;
+
 }
 
 .login-btn:hover {
@@ -32,7 +33,7 @@
 
 .play-btn {
     width: 145px;
-    height: 204px;
+    height: 190px;
     border-radius: 15px;
     display: flex;
     align-items: center;
@@ -42,7 +43,6 @@
     background-position: center;
     background-repeat: no-repeat;
     transition: all .2s ease-in-out;
-    margin: 10px;
 }
 
 
@@ -53,7 +53,7 @@
 
 .scores-btn {
     width: 145px;
-    height: 204px;
+    height: 190px;
     border-radius: 15px;
     display: flex;
     align-items: center;
@@ -63,7 +63,6 @@
     background-position: center;
     background-repeat: no-repeat;
     transition: all .2s ease-in-out;
-    margin: 10px;
 }
 
 
@@ -75,7 +74,7 @@
 
 .level-btn {
     width: 145px;
-    height: 204px;
+    height: 190px;
     border-radius: 15px;
     display: flex;
     align-items: center;
@@ -85,7 +84,6 @@
     background-position: center;
     background-repeat: no-repeat;
     transition: all .2s ease-in-out;
-    margin: 10px;
 }
 
 
@@ -97,7 +95,7 @@
 
 .themes-btn {
     width: 145px;
-    height: 204px;
+    height: 190px;
     border-radius: 15px;
     display: flex;
     align-items: center;
@@ -107,7 +105,7 @@
     background-position: center;
     background-repeat: no-repeat;
     transition: all .2s ease-in-out;
-    margin: 10px;
+
 }
 
 
@@ -118,7 +116,7 @@
 
 .credits-btn {
     width: 145px;
-    height: 204px;
+    height: 190px;
     border-radius: 15px;
     display: flex;
     align-items: center;
@@ -128,7 +126,6 @@
     background-position: center;
     background-repeat: no-repeat;
     transition: all .2s ease-in-out;
-    margin: 10px;
 }
 
 
