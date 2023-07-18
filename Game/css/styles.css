@@ -19,7 +19,7 @@ body {
     flex-direction: column;
     background-color: var(--background-color-navy);
     width: 100vw;
-    height: 95vh;
+    height: 92vh;
     position: fixed;
 }
 
@@ -76,8 +76,8 @@ body {
 .title-menu {
     background-image: url(../imgs/menu-title.png);
     background-size: contain;
-    width: 370px;
-    height: 50px;
+    width: 375px;
+    height: 60px;
     background-position: center;
     background-repeat: no-repeat;
 }
