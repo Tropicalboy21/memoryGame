@@ -10,7 +10,7 @@
     --nav-container-height: 78px;
 }
 
-.body {
+body {
     background-color: var(--background-color-teal);
 }
 
@@ -19,7 +19,7 @@
     flex-direction: column;
     background-color: var(--background-color-navy);
     width: 100vw;
-    height: 100vh;
+    height: 95vh;
     position: fixed;
 }
 
