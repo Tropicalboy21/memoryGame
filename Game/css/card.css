@@ -1,3 +1,31 @@
-.card {
+.cardView {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 60px;
+    width: 80px;
+    height: 80px;
+}
+
+.cardView-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-color-mint);
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.cardView-hidden {
+    background-color: var(--background-color-mint);
+}
+
+.cardView-selected {
+    background-color: rgb(149, 255, 225);
+}
+
+.cardView-discovered {
+    background-color: rgb(238, 0, 255);
 }

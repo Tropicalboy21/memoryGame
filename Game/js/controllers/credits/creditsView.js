@@ -1,12 +1,12 @@
-import { View } from "../view.js";
+import { ControllerView } from "../controllerView.js";
 import { div, p } from "../../libs/html.js"
 
-export class CreditsView extends View {
+export class CreditsView extends ControllerView {
     constructor(controller, parent) {
         super(controller, parent);
-        this.container.className = 'creditsView';
+        this.elementsContainer.className = 'creditsView';
 
-        var gameName = div({ className: 'game-name' }, this.container);
+        var gameName = div({ className: 'game-name' }, this.elementsContainer);
 
         var link = document.createElement('a');
         link.innerHTML = 'Lenin Ugalde';
@@ -19,12 +19,12 @@ export class CreditsView extends View {
 
         var creditsTxt = document.createElement('h1');
         creditsTxt.className = 'credits-text';
-        this.container.appendChild(creditsTxt);
+        this.elementsContainer.appendChild(creditsTxt);
         creditsTxt.innerHTML = 'Design & Developed by ';
         creditsTxt.appendChild(link);
         creditsTxt.appendChild(date);
 
-        var footer = div({ innerHTML: 'All Rights reserved © Lenin UGalde 2023', className: 'footer' }, this.container)
+        var footer = div({ innerHTML: 'All Rights reserved © Lenin UGalde 2023', className: 'footer' }, this.elementsContainer)
 
 
 

@@ -1,5 +1,5 @@
-.menuView {
-    width: 100%;
+.menuView-elementsContainer {
+    top: 30px;
     height: 100%;
     display: flex;
     justify-content: center;

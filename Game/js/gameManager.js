@@ -36,6 +36,13 @@ export class GameManager {
             this.saveDifficulty()
         });
 
+        this.contentContainer.addEventListener('save-theme', (event) => {
+            this.theme = event.detail.theme;
+            this.saveTheme();
+            this.loadTheme();
+
+        })
+
         this.loadDifficulty();
 
     }
@@ -99,4 +106,15 @@ export class GameManager {
     saveDifficulty() {
         localStorage.setItem('difficulty', this.difficulty);
     }
+
+    loadTheme() {
+        if (localStorage.getItem('theme')) {
+            this.difficulty = localStorage.getItem('theme');
+        }
+    }
+
+    saveTheme() {
+        localStorage.setItem('theme', this.theme);
+    }
+
 }

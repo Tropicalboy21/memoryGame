@@ -1,13 +1,13 @@
 import { div } from "../libs/html.js"
+import { View } from "../views/view.js";
 
-export class View {
+export class ControllerView extends View {
     constructor(controller, parent) {
+        super(parent);
         this.controller = controller;
-        this.parent = parent;
-        this.container = div({}, this.parent);
-        this.fadeContainer = div({ className: 'view-fadeContainer' }, this.container)
-        this.container.style.transform = `translateX(${window.innerWidth}px)`;
-        this.callback = null;
+        this.fadeContainer = div({ className: 'controllerView-fadeContainer' }, this.container)
+        this.elementsContainer = div({ className: 'controllerView-elementsContainer' }, this.container);
+        this.elementsContainer.style.transform = `translateX(${window.innerWidth}px)`;
         this.show();
     }
 
@@ -17,12 +17,12 @@ export class View {
 
     show() {
         gsap.to(this.fadeContainer, { opacity: 0.75, duration: 0.25, ease: "expo.out" });
-        gsap.to(this.container, { x: 0, duration: 0.75, ease: "expo.out" });
+        gsap.to(this.elementsContainer, { x: 0, duration: 0.75, ease: "expo.out" });
     }
 
     hide(callback, state) {
         gsap.to(this.fadeContainer, { opacity: 0, duration: 0.75, ease: "expo.in", onComplete: this.hideComplete.bind(this, state) });
-        gsap.to(this.container, { x: window.innerWidth, duration: 0.5, ease: "expo.in", onComplete: this.hideComplete.bind(this, state) });
+        gsap.to(this.elementsContainer, { x: window.innerWidth, duration: 0.5, ease: "expo.in", onComplete: this.hideComplete.bind(this, state) });
     }
 
     hideComplete(state) {

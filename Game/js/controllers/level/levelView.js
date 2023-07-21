@@ -1,19 +1,19 @@
-import { View } from "../view.js";
+import { ControllerView } from "../controllerView.js";
 import { div } from "../../libs/html.js";
 import { DIFFICULTY_HIGH, DIFFICULTY_LOW, DIFFICULTY_MEDIUM } from "../../libs/constants.js";
 
-export class LevelView extends View {
+export class LevelView extends ControllerView {
     constructor(controller, parent) {
         super(controller, parent);
-        this.container.className = 'levelView';
+        this.elementsContainer.className = 'levelView';
 
-        div({ innerHTML: 'Low', className: 'btn', onclick: this.onButtonClick.bind(this, DIFFICULTY_LOW) }, this.container);
-
-
-        div({ innerHTML: 'Medium', className: 'btn', onclick: this.onButtonClick.bind(this, DIFFICULTY_MEDIUM) }, this.container);
+        div({ innerHTML: 'Low', className: 'btn', onclick: this.onButtonClick.bind(this, DIFFICULTY_LOW) }, this.elementsContainer);
 
 
-        div({ innerHTML: 'Hard', className: 'btn', onclick: this.onButtonClick.bind(this, DIFFICULTY_HIGH) }, this.container);
+        div({ innerHTML: 'Medium', className: 'btn', onclick: this.onButtonClick.bind(this, DIFFICULTY_MEDIUM) }, this.elementsContainer);
+
+
+        div({ innerHTML: 'Hard', className: 'btn', onclick: this.onButtonClick.bind(this, DIFFICULTY_HIGH) }, this.elementsContainer);
     }
 
     onButtonClick(difficulty) {
