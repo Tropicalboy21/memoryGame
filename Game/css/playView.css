@@ -1,5 +1,4 @@
 .playView-elementsContainer {
-    top: 20px;
     width: 100%;
     height: 100%;
     position: fixed;
@@ -8,20 +7,20 @@
     justify-content: center;
     flex-direction: column;
     background-color: var(--background-color-teal);
-    overflow-y: scroll;
 }
 
 .playView-cardsContainer {
     display: flex;
     justify-content: center;
-    align-content: center;
     flex-wrap: wrap;
+    overflow-y: scroll;
+    padding-bottom: 90px;
 }
 
 .playView-hudContainer {
     color: white;
     font-size: 20px;
-    width: 80%;
+    width: 82%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -37,5 +36,4 @@
     border-radius: 15px;
     background: #05BFDB;
     box-shadow: -4px 0px 6px 0px rgba(0, 0, 0, 0.25) inset, 4px 0px 6px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-
 }
