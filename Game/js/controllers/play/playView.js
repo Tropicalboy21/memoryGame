@@ -12,7 +12,7 @@ export class PlayView extends ControllerView {
 
         this.clicksText = div({ innerHTML: 'Clicks: 0', className: 'playView-text' }, this.hudContainer);
         this.timerText = div({ innerHTML: 'Time: 0', className: 'playView-text' }, this.hudContainer);
-        this.resetBtn = div({ innerHTML: 'reset', className: 'reset-btn' }, this.hudContainer);
+        this.resetBtn = div({ innerHTML: 'reset', className: 'reset-btn', onclick: this.onResetBtn.bind(this) }, this.hudContainer);
 
     }
 

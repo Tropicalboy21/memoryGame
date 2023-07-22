@@ -28,11 +28,11 @@
 }
 
 .cardView-hidden {
-    background-color: var(--background-color-mint);
+    /* background-color: var(--background-color-mint); */
 }
 
 .cardView-selected {
-    background-color: rgb(149, 255, 225);
+    background: linear-gradient(180deg, #00FB37 0%, #FBF100 100%);
 }
 
 .cardView-discovered {

@@ -9,13 +9,17 @@ export class CardView extends View {
         this.iconContainer = div({ className: 'cardView cardView-hidden' }, this.container);
         this.container.onclick = this.onSelected.bind(this);
 
-        this.iconContainer.innerHTML = this.card.icon;
+        window.addEventListener('show-card-on-discovered', (event) => {
+            this.showOnDiscovered();
+        });
+
+        window.addEventListener('hide-selected-card', (event) => {
+            this.hide();
+        });
 
         window.addEventListener('show-card-on-selected', (event) => {
             this.showOnSelected();
         });
-
-
     }
 
     onSelected() {
@@ -30,5 +34,35 @@ export class CardView extends View {
             composed: false,
         });
         this.container.dispatchEvent(event);
+    }
+
+    showOnSelected() {
+        if (this.card.isSelected) {
+            this.iconContainer.innerHTML = this.card.icon;
+            this.iconContainer.classList.remove('cardView-hidden');
+            this.iconContainer.classList.add('cardView-selected');
+            this.container.classList.add('cardView-selected');
+        }
+    }
+
+    showOnDiscovered() {
+        if (this.card.isSelected && !this.card.isDiscovered) {
+            this.card.isDiscovered = true;
+            this.iconContainer.classList.remove('cardView-hidden');
+            this.iconContainer.classList.remove('cardView-selected');
+            this.iconContainer.classList.add('cardView-discovered');
+            this.container.onclick = null;
+        }
+    }
+
+    hide() {
+        if (this.card.isSelected && !this.card.isDiscovered) {
+            this.card.isSelected = false;
+            this.iconContainer.innerHTML = '';
+            this.iconContainer.classList.add('cardView-hidden');
+            this.iconContainer.classList.remove('cardView-selected');
+            this.container.classList.remove('cardView-selected');
+
+        }
     }
 } 
