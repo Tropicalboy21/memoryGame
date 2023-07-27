@@ -64,7 +64,7 @@ export class PlayController extends Controller {
             if (!card.isDiscovered) {
                 if (cardSelected1 === null && card.isSelected) {
                     cardSelected1 = card;
-                } else {
+                } else if (cardSelected2 === null && card.isSelected) {
                     cardSelected2 = card;
                 }
             }
