@@ -84,7 +84,7 @@ export class PlayController extends Controller {
                 this.view.container.dispatchEvent(event);
 
                 if (this.checkGameComplete()) {
-                    this.killerGaneTimer();
+                    this.killGameTimer();
                     let score = this.click + this.time;
                     this.service.sendScore(score, this.clicks, this.time, this.gameManager.username);
                 }

@@ -39,8 +39,8 @@ export class CardView extends View {
     showOnSelected() {
         if (this.card.isSelected) {
             this.iconContainer.innerHTML = this.card.icon;
-            this.iconContainer.classList.remove('cardView-hidden');
-            this.iconContainer.classList.add('cardView-selected');
+            this.container.classList.remove('cardView-hidden');
+            this.container.classList.add('cardView-selected');
             this.container.classList.add('cardView-selected');
         }
     }
@@ -48,9 +48,9 @@ export class CardView extends View {
     showOnDiscovered() {
         if (this.card.isSelected && !this.card.isDiscovered) {
             this.card.isDiscovered = true;
-            this.iconContainer.classList.remove('cardView-hidden');
-            this.iconContainer.classList.remove('cardView-selected');
-            this.iconContainer.classList.add('cardView-discovered');
+            this.container.classList.remove('cardView-hidden');
+            this.container.classList.remove('cardView-selected');
+            this.container.classList.add('cardView-discovered');
             this.container.onclick = null;
         }
     }

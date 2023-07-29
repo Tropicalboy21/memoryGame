@@ -12,6 +12,7 @@ export class GameManager {
     constructor() {
         this.difficulty = DIFFICULTY_MEDIUM;
         this.theme = THEME_FOOD;
+        this.username = '';
 
         this.controller = null;
         this.navigationContainer = document.getElementById('navigationContainer');
@@ -43,7 +44,15 @@ export class GameManager {
 
         })
 
+        window.addEventListener('username-entered', (event) => {
+            this.username = event.detail.username;
+            this.saveUsername();
+            this.goto(MENU_STATE);
+        })
+
         this.loadDifficulty();
+        this.loadTheme();
+        this.loadUsername();
 
     }
 
@@ -66,6 +75,7 @@ export class GameManager {
                 break;
             case MENU_STATE:
                 this.backBtn.classList.add('hidden');
+                this.className = '';
                 this.title.className = 'title-menu';
                 break;
             case LOGIN_STATE:
@@ -91,7 +101,7 @@ export class GameManager {
 
     goto(state) {
         if (this.controller !== null) {
-            this.controller.hide(this.presenting.bind(this, state));
+            this.controller.hide(state);
         } else {
             this.presenting(state);
         }
@@ -115,6 +125,17 @@ export class GameManager {
 
     saveTheme() {
         localStorage.setItem('theme', this.theme);
+    }
+
+    saveUsername() {
+        localStorage.setItem('username', this.username);
+    }
+
+    loadUsername() {
+        if (localStorage.getItem('username')) {
+            this.username = localStorage.getItem('username');
+            console.log('USERNAME:', this.username);
+        }
     }
 
 }
