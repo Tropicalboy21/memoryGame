@@ -10,7 +10,7 @@ import { MENU_STATE, LOGIN_STATE, PLAY_STATE, SCORES_STATE, LEVEL_STATE, THEMES_
 
 export class GameManager {
     constructor() {
-        this.difficulty = DIFFICULTY_MEDIUM;
+        this.difficulty = DIFFICULTY_LOW;
         this.theme = THEME_FOOD;
         this.username = '';
 
@@ -24,20 +24,20 @@ export class GameManager {
         this.menuController = new MenuController(this, this.contentContainer);
         this.presenting(MENU_STATE);
 
-        this.contentContainer.addEventListener('home-button-click', (event) => {
+        window.contentContainer.addEventListener('home-button-click', (event) => {
             this.presenting(event.detail.state);
         })
 
-        this.contentContainer.addEventListener('hide-complete', (event) => {
+        window.contentContainer.addEventListener('hide-complete', (event) => {
             this.presenting(event.detail.state);
         });
 
-        this.contentContainer.addEventListener('save-difficulty', (event) => {
+        window.contentContainer.addEventListener('save-difficulty', (event) => {
             this.difficulty = event.detail.difficulty;
             this.saveDifficulty()
         });
 
-        this.contentContainer.addEventListener('save-theme', (event) => {
+        window.contentContainer.addEventListener('save-theme', (event) => {
             this.theme = event.detail.theme;
             this.saveTheme();
             this.loadTheme();
@@ -63,7 +63,6 @@ export class GameManager {
         }
 
         this.backBtn.classList.remove('hidden');
-
         switch (state) {
             case CREDITS_STATE:
                 this.title.className = 'title-credits';
@@ -74,9 +73,8 @@ export class GameManager {
                 this.controller = new LevelController(this, this.contentContainer);
                 break;
             case MENU_STATE:
-                this.backBtn.classList.add('hidden');
-                this.className = '';
                 this.title.className = 'title-menu';
+                this.backBtn.classList.add('hidden');
                 break;
             case LOGIN_STATE:
                 this.title.className = 'title-login';
@@ -101,9 +99,11 @@ export class GameManager {
 
     goto(state) {
         if (this.controller !== null) {
-            this.controller.hide(state);
-        } else {
             this.presenting(state);
+
+        } else {
+            this.controller.hide(state);
+
         }
     }
 
