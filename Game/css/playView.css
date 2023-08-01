@@ -15,12 +15,13 @@
     flex-wrap: wrap;
     overflow-y: scroll;
     padding-bottom: 90px;
+    max-width: 520px;
 }
 
 .playView-hudContainer {
     color: white;
     font-size: 20px;
-    width: 82%;
+    width: 320px;
     display: flex;
     justify-content: space-between;
     align-items: center;
