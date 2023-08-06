@@ -119,7 +119,7 @@ export class GameManager {
 
     loadTheme() {
         if (localStorage.getItem('theme')) {
-            this.difficulty = localStorage.getItem('theme');
+            this.theme = localStorage.getItem('theme');
         }
     }
 

@@ -1,0 +1,16 @@
+{
+  "name": "memory-game",
+  "version": "1.0.0",
+  "description": "Backend",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "author": "Lenin Ugalde",
+  "license": "MIT",
+  "devDependencies": {
+    "axios": "^1.4.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}

@@ -171,3 +171,8 @@ body {
     background-color: var(--background-color-mint);
     color: #000;
 }
+
+.btn-selected {
+    background-color: var(--background-color-mint);
+    color: #000;
+}
