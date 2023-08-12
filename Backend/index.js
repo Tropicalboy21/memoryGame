@@ -95,8 +95,4 @@ function shuffleArray(array) {
 };
 
 
-app.listen(PORT, function () { })
-app.listen(PORT, () => { })
-
-
 module.exports = app;
