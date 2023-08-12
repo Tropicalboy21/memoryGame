@@ -8,7 +8,7 @@ export class PlayService extends Service {
 
     getCards(difficulty, theme) {
         var cards = [];
-        var url = `http://localhost:3000/cards/${difficulty}/${theme}`;
+        var url = `https://backend-ten-orpin.vercel.app/cards/${difficulty}/${theme}`;
         var request = new XMLHttpRequest();
         request.open('get', url);
         request.onload = () => {
