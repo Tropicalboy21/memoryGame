@@ -1,9 +1,13 @@
+const axios = require('axios');
 const express = require('express');
 const cors = require('cors');
 const app = express();
 const port = 3000;
 
+
 app.use(cors());
+
+const dataBaseURL = 'https://proyecto-memorygamejs-default-rtdb.firebaseio.com/';
 
 const food = ['🍏', '🍎', '🍐', '🍊', '🍋', '🍌', '🍉', '🍇', '🍓', '🫐', '🍈', '🍒', '🍑', '🥭', '🍍', '🥥', '🥝', '🍅', '🍆', '🥑', '🫛', '🥦', '🥬', '🥒', '🌶️', '🫑', '🌽', '🥕', '🫒', '🧄', '🧅', '🥔', '🍠', '🫚', '🥐', '🥯', '🍞', '🥖', '🥨', '🧀', '🥚', '🍳', '🧈', '🥞', '🧇', '🥓', '🥩', '🍗', '🍖', '🌭', '🍔', '🍟', '🍕', '🫓', '🥪', '🥙', '🧆', '🌮', '🌯', '🫔', '🥗', '🥘', '🫕', '🥫', '🍝', '🍜', '🍲', '🍛', '🍣', '🍱', '🥟', '🦪', '🍤', '🍙', '🍚', '🍘', '🍥', '🥠', '🥮', '🍢', '🍡', '🍧', '🍨', '🍦', '🥧', '🧁', '🍰', '🎂', '🍮', '🍭', '🍬', '🍫', '🍿', '🍩', '🍪', '🌰', '🥜', '🫘', '🍯', '🥛', '🍼', '🫖', '☕️', '🍵', '🧃', '🥤', '🧋', '🍺', '🍻', '🥂', '🍷', '🥃', '🍸', '🍹', '🧉', '🍾', '🧊', '🥡', '🧂'];
 
@@ -32,13 +36,30 @@ app.get('/cards/:difficulty/:theme', (request, response) => {
         }
     }
     response.send(JSON.stringify(data));
-
 });
 
 app.get('/scores', (request, response) => {
-    console.log(request);
-    console.log(request);
-    response.send('Lista de Scores');
+    let body = [];
+    request.on('data', (chunk) => {
+        body.push(chunk);
+    }).on('end', () => {
+        const jsonData = Buffer.concat(body).toString();
+        if (jsonData !== undefined) {
+            const url = `${dataBaseURL}/data/scores.json`;
+            const score = JSON.parse(jsonData);
+            if (score !== undefined && score.clicks !== undefined && score.time !== undefined && score.score !== undefined) {
+                axios.post(url, score).then(function (result) {
+                    response.send('Score saved');
+                }).catch(function (error) {
+                    response.send(error);
+                });
+            } else {
+                response.send('Score undefined or null!');
+            }
+        } else {
+            respond.send('request.body undefined or null');
+        }
+    });
 });
 
 // app.listen(port, () => {
@@ -49,10 +70,18 @@ function ramdomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-function getIconIndex(iconIndex, iconList) {
-    let newIconIndex = ramdomInteger(0, (iconList.length - 1));
+function getIconIndex(iconIndex, length, cards) {
+    let newIconIndex = ramdomInteger(0, (length - 1));
+
+    for (let i = 0; i < cards.length; i++) {
+        const card = cards[i];
+        if (card.id === newIconIndex) {
+            return getIconIndex(iconIndex, length, cards);
+        }
+    }
+
     if (iconIndex === newIconIndex) {
-        return getIconIndex(iconIndex, iconList)
+        return getIconIndex(iconIndex, length, cards)
     }
     return newIconIndex;
 };
@@ -74,7 +103,7 @@ function getCards(difficulty, theme) {
     }
 
     for (let i = 0; i < difficulty; i++) {
-        var iconIndex = getIconIndex(-1, iconList);
+        var iconIndex = getIconIndex(-1, iconList.length, cards);
         var card = {
             "isDiscovered": false,
             "icon": iconList[iconIndex],

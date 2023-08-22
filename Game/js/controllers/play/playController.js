@@ -1,6 +1,7 @@
 import { Controller } from "../controller.js";
 import { PlayService } from "./playService.js";
 import { PlayView } from "./playView.js";
+import { AlertView } from "../alert/alertView.js";
 
 export class PlayController extends Controller {
     constructor(gameManager, parent) {

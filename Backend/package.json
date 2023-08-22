@@ -4,7 +4,8 @@
   "description": "Backend",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "run": "vercel dev",
+    "deploy": "vercel --prod"
   },
   "author": "Lenin Ugalde",
   "license": "MIT",
