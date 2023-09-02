@@ -14,10 +14,11 @@ export class ScoresService extends Service {
         request.onload = () => {
             if (request.status === 200) {
                 var data = JSON.parse(request.response);
-                data.forEach(scoreData => {
+                for (const key in data) {
+                    const scoreData = data[key]
                     let score = new Score(scoreData.clicks, scoreData.score, scoreData.time, scoreData.username);
                     scores.push(score);
-                });
+                };
             } else {
                 console.error('Error requesting scores');
             }

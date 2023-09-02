@@ -10,25 +10,29 @@ import { MENU_STATE, LOGIN_STATE, PLAY_STATE, SCORES_STATE, LEVEL_STATE, THEMES_
 
 export class GameManager {
     constructor() {
+        this.IS_DEVELOPMENT = true;
         this.difficulty = DIFFICULTY_LOW;
         this.theme = THEME_FOOD;
         this.username = '';
-
         this.controller = null;
         this.navigationContainer = document.getElementById('navigationContainer');
         this.contentContainer = document.getElementById('contentContainer');
         this.backBtn = document.getElementById('navigationContainer-back-button');
         this.title = document.getElementById('navigationContainer-title');
         this.backBtn.onclick = this.goto.bind(this, MENU_STATE);
-
         this.menuController = new MenuController(this, this.contentContainer);
         this.presenting(MENU_STATE);
 
         window.contentContainer.addEventListener('home-button-click', (event) => {
             this.presenting(event.detail.state);
-        })
+        });
 
         window.contentContainer.addEventListener('hide-complete', (event) => {
+            this.presenting(event.detail.state);
+        });
+
+
+        window.contentContainer.addEventListener('reset-button-click', (event) => {
             this.presenting(event.detail.state);
         });
 
@@ -42,18 +46,17 @@ export class GameManager {
             this.saveTheme();
             this.loadTheme();
 
-        })
+        });
 
         window.addEventListener('username-entered', (event) => {
             this.username = event.detail.username;
             this.saveUsername();
             this.goto(MENU_STATE);
-        })
+        });
 
         this.loadDifficulty();
         this.loadTheme();
         this.loadUsername();
-
     }
 
     presenting(state) {
@@ -100,10 +103,8 @@ export class GameManager {
     goto(state) {
         if (this.controller !== null) {
             this.presenting(state);
-
         } else {
             this.controller.hide(state);
-
         }
     }
 
@@ -137,5 +138,4 @@ export class GameManager {
             console.log('USERNAME:', this.username);
         }
     }
-
-}
+};

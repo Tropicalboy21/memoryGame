@@ -2,8 +2,6 @@ const axios = require('axios');
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const port = 3000;
-
 
 app.use(cors());
 
@@ -14,10 +12,6 @@ const food = ['🍏', '🍎', '🍐', '🍊', '🍋', '🍌', '🍉', '🍇', '�
 const flags = ['🏳', '🏴', '🏁', '🚩', '🎌', '🏴‍☠️', '🏳️‍🌈', '🏳️‍⚧️', '🇦🇨', '🇦🇩', '🇦🇪', '🇦🇫', '🇦🇬', '🇦🇮', '🇦🇱', '🇦🇲', '🇦🇴', '🇦🇶', '🇦🇷', '🇦🇸', '🇨🇨', '🇨🇩', '🇨🇫', '🇨🇬', '🇨🇭', '🇨🇮', '🇨🇰', '🇨🇱', '🇨🇲', '🇨🇳', '🇨🇴', '🇨🇷', '🇨🇺', '🇨🇻', '🇨🇼', '🇨🇽', '🇪🇸', '🇪🇷', '🇪🇭', '🇪🇬', '🇪🇪', '🇪🇨', '🇩🇿', '🇩🇴', '🇩🇲', '🇩🇰', '🇩🇯', '🇩🇪', '🇨🇿', '🇨🇾', '🇪🇹', '🇪🇺', '🇫🇮', '🇫🇯', '🇫🇰', '🇫🇲', '🇫🇴', '🇫🇷', '🇬🇦', '🇬🇧', '🇬🇩', '🇬🇪', '🇬🇫', '🇬🇬', '🇬🇭', '🇬🇮', '🇭🇺', '🇭🇹', '🇭🇷', '🇭🇳', '🇭🇰', '🇬🇾', '🇬🇼', '🇬🇺', '🇬🇹', '🇬🇸', '🇬🇷', '🇬🇶', '🇬🇵', '🇬🇳', '🇬🇲', '🇬🇱', '🇮🇨', '🇮🇪', '🇮🇱', '🇮🇲', '🇮🇳', '🇮🇴', '🇮🇶', '🇮🇷', '🇮🇸', '🇮🇹', '🇯🇪', '🇯🇲', '🇯🇴', '🇯🇵', '🇰🇪', '🇱🇷', '🇱🇰', '🇱🇮', '🇱🇨', '🇱🇧', '🇱🇦', '🇰🇿', '🇰🇾', '🇰🇼', '🇰🇷', '🇰🇵'];
 
 const faces = ['😃', '😄', '😁', '😆', '😅', '😂', '🤣', '😇', '😉', '😊', '🙂', '🙃', '☺', '😋', '😌', '😍', '🥰', '😘', '😗', '😚', '🥲', '🤪', '😜', '😝', '😛', '🤑', '😎', '🤓', '🥸', '🧐', '🤠', '🥳', '🤡', '😏', '😶', '🫥', '😐', '🫤', '😑', '😒', '🙄', '🤨', '🤔', '🤫', '🤭', '🫢', '🫡', '🤗', '🫣', '🤥', '😳', '😞', '😟', '😤', '😠', '😡', '🤬', '😔', '😕', '🙁', '☹', '😬', '🥺', '😣', '😖', '😫', '😩', '🥱', '😪', '😮‍💨', '😮', '😱', '😨', '😰', '😥', '😓', '😯', '😦', '😧', '🥹', '😢', '😭', '🤤', '🤩', '😵', '😵‍💫', '🥴', '😲', '🤯', '🫠', '🤐', '😷', '🤕', '🤒', '🤮', '🤢', '🤧', '🥵', '🥶', '😶‍🌫️', '😴'];
-
-app.get("/", (req, res) => {
-    res.send("Api Funcionado");
-});
 
 app.get('/cards/:difficulty/:theme', (request, response) => {
     var data = { cards: [] };
@@ -39,6 +33,31 @@ app.get('/cards/:difficulty/:theme', (request, response) => {
 });
 
 app.get('/scores', (request, response) => {
+    const url = `${dataBaseURL}/data/scores.json`;
+    axios.get(url).then(function (result) {
+        var sortedScores = [];
+        var scoresData = result.data;
+
+        if (scoresData !== null) {
+            var scoresTemp = [];
+            for (const key in scoresData) {
+                const score = scoresData[key];
+                scoresTemp.push(score);
+            }
+            sortedScores = scoresTemp.sort(function (a, b) {
+                return a.score - b.score;
+            });
+        }
+        response.send(JSON.stringify(sortedScores.splice(0, 10)));
+    }).catch(function (error) {
+        console.log(error);
+        response.send('Error getting scores!')
+    }).finally(function () {
+
+    });
+});
+
+app.post('/score', (request, response) => {
     let body = [];
     request.on('data', (chunk) => {
         body.push(chunk);
@@ -62,9 +81,6 @@ app.get('/scores', (request, response) => {
     });
 });
 
-// app.listen(port, () => {
-//     console.log(`App listening on port ${port}`);
-// });
 
 function ramdomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -111,16 +127,14 @@ function getCards(difficulty, theme) {
         }
         cards.push(card);
     }
-    console.log(cards)
     return cards;
 };
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [array[1], array[j] = array[j], array[1]];
+        [array[i], array[j]] = [array[j], array[i]];
     }
 };
-
 
 module.exports = app;

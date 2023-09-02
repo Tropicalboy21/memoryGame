@@ -1,6 +1,7 @@
 import { div } from "../../libs/html.js";
 import { ControllerView } from "../controllerView.js";
-import { CardView } from '../../views/cardView.js'
+import { CardView } from '../../views/cardView.js';
+import { AlertView } from "../alert/alertView.js";
 
 export class PlayView extends ControllerView {
     constructor(controller, parent) {
@@ -9,11 +10,9 @@ export class PlayView extends ControllerView {
         this.elementsContainer.className = 'playView-elementsContainer';
         this.hudContainer = div({ className: 'playView-hudContainer' }, this.elementsContainer)
         this.cardsContainer = div({ className: 'playView-cardsContainer' }, this.elementsContainer);
-
         this.clicksText = div({ innerHTML: 'Clicks: 0', className: 'playView-text' }, this.hudContainer);
         this.timerText = div({ innerHTML: 'Time: 0', className: 'playView-text' }, this.hudContainer);
         this.resetBtn = div({ innerHTML: 'reset', className: 'reset-btn', onclick: this.onResetBtn.bind(this) }, this.hudContainer);
-
     }
 
     showCards(cards) {
@@ -30,5 +29,9 @@ export class PlayView extends ControllerView {
     updateHUD(clicks, time) {
         this.clicksText.innerHTML = `Clicks: ${clicks}`;
         this.timerText.innerHTML = `Time: ${time}`;
+    }
+
+    showAlert() {
+        let alertView = new AlertView(this.container);
     }
 }

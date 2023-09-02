@@ -24,7 +24,6 @@ export class CardView extends View {
 
     onSelected() {
         this.card.isSelected = true;
-
         var event = new CustomEvent('card-selected', {
             detail: {
                 card: this.card,
@@ -38,18 +37,15 @@ export class CardView extends View {
 
     showOnSelected() {
         if (this.card.isSelected) {
+            this.container.classList.add('is-flipped');
+            this.container.classList.add('cardView-selected');
             this.iconContainer.innerHTML = this.card.icon;
-            this.container.classList.remove('cardView-hidden');
-            this.container.classList.add('cardView-selected');
-            this.container.classList.add('cardView-selected');
         }
     }
 
     showOnDiscovered() {
         if (this.card.isSelected && !this.card.isDiscovered) {
             this.card.isDiscovered = true;
-            this.container.classList.remove('cardView-hidden');
-            this.container.classList.remove('cardView-selected');
             this.container.classList.add('cardView-discovered');
             this.container.onclick = null;
         }
@@ -59,10 +55,9 @@ export class CardView extends View {
         if (this.card.isSelected && !this.card.isDiscovered) {
             this.card.isSelected = false;
             this.iconContainer.innerHTML = '';
-            this.iconContainer.classList.add('cardView-hidden');
-            this.iconContainer.classList.remove('cardView-selected');
+            this.card.isDiscovered = false;
+            this.container.classList.add('is-flipped-back');
             this.container.classList.remove('cardView-selected');
-
         }
     }
 } 

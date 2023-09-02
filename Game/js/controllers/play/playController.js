@@ -28,6 +28,10 @@ export class PlayController extends Controller {
         this.timer = window.setInterval(this.gameTick.bind(this), 1000);
     }
 
+    showAlert() {
+        this.view.showAlert();
+    }
+
     resetGame() {
         this.killGameTimer();
         this.time = 0;
@@ -88,6 +92,7 @@ export class PlayController extends Controller {
                     this.killGameTimer();
                     let score = this.click + this.time;
                     this.service.sendScore(score, this.clicks, this.time, this.gameManager.username);
+                    this.showAlert();
                 }
             } else {
                 this.hiddenTimer = window.setTimeout(() => {

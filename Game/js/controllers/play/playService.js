@@ -8,7 +8,8 @@ export class PlayService extends Service {
 
     getCards(difficulty, theme) {
         var cards = [];
-        var url = `https://backend-ten-orpin.vercel.app/cards/${difficulty}/${theme}`;
+        var url = `${this.baseURL}/cards/${difficulty}/${theme}`;
+        // var url = `https://backend-ten-orpin.vercel.app/cards/${difficulty}/${theme}`;
         var request = new XMLHttpRequest();
         request.open('get', url);
         request.onload = () => {
@@ -27,7 +28,7 @@ export class PlayService extends Service {
     }
 
     sendScore(score, clicks, time, username) {
-        var url = `https://us-central1-cenfoprojectsbackend.cloudfunctions.net/app/scores`;
+        var url = `${this.baseURL}/scores`;
         var request = new XMLHttpRequest();
         request.open('POST', url);
         request.send(JSON.stringify({ score: score, clicks: clicks, time: time, username: username }));

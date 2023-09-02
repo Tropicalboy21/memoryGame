@@ -7,6 +7,7 @@
     height: 80px;
 }
 
+/* front */
 .cardView-container {
     display: flex;
     align-items: center;
@@ -17,15 +18,30 @@
     margin: 5px;
     border-radius: 5px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    transform-style: preserve-3d;
+    transform-origin: center right;
+    transition: transform 1s;
 }
 
-.cardView-hidden {
-    /* background-color: var(--background-color-mint); */
+.cardView-front {
+    background-color: var(--background-color-mint);
+    transform: rotateY(-180deg);
+
 }
 
+.cardView-container.is-flipped {
+    transform: translateX(-100%) rotateY(180deg);
+}
+
+
+.cardView-container.is-flipped-back {
+    transform: translateX(-100%) rotateY(-180deg);
+}
+
+/* back */
 .cardView-selected {
     background: linear-gradient(180deg, #00FFCA 32.81%, #05BFDB 92.19%);
-
+    transform: rotateY(180deg);
 }
 
 .cardView-discovered {
