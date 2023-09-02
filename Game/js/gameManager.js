@@ -10,7 +10,7 @@ import { MENU_STATE, LOGIN_STATE, PLAY_STATE, SCORES_STATE, LEVEL_STATE, THEMES_
 
 export class GameManager {
     constructor() {
-        this.IS_DEVELOPMENT = true;
+        this.IS_DEVELOPMENT = false;
         this.difficulty = DIFFICULTY_LOW;
         this.theme = THEME_FOOD;
         this.username = '';
