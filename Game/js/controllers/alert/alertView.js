@@ -17,7 +17,6 @@ export class AlertView extends View {
         this.buttonsContainer = div({ className: 'buttons-container' }, this.alert)
         this.resetBtn = div({ innerHTML: 'Menu', className: 'reset-btn', onclick: this.onButtonClick.bind(this, MENU_STATE) }, this.buttonsContainer);
         this.resetBtn = div({ innerHTML: 'Reset', className: 'reset-btn', onclick: this.onResetBtn.bind(this, PLAY_STATE) }, this.buttonsContainer);
-
     }
 
     onButtonClick(state) {
